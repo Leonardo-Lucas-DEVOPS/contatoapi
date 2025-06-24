@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="menu">
+    <h1>Cadastrar Novos Comentarios</h1>
+    <!-- <Comentario /> -->
+    <TestApi/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import Comentario from '@/comentarios/comentario.vue';
+import TestApi from './comentarios/TestApi.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    // Comentario,
+    TestApi,
   }
-}
+};
 </script>
-
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.menu{
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  height: 100%;
+  width: 100%;
+  font-family: sans-serif;
 }
 </style>
+<style></style>
