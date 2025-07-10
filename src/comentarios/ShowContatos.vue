@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <h1 class="titulo">📋 Lista de Contatos</h1>
+    <!-- retorno da API -->
+    <div v-if="this.ApiMensagem" class="mensagem">
+      {{ this.ApiMensagem }}
+    </div>
     <ul class="lista-contatos">
       <li v-for="contato in contatos" :key="contato.id" class="card-contato">
         <p><strong>👤 Nome:</strong> {{ contato.username }}</p>
@@ -23,7 +27,8 @@ export default {
   name: 'ShowContatos',
   data() {
     return {
-      contatos: []
+      contatos: [],
+      ApiMensagem: null // Variável para armazenar mensagens da API 
     };
   },
   mounted() {
@@ -41,7 +46,7 @@ export default {
     async deletarId(id) {
       try {
         await api.delete(`/API/Contatos/Delete/${id}`);
-        alert("Usuário deletado com sucesso!");
+        this.ApiMensagem = "Usuário deletado com sucesso!";
         this.buscarContatos(); // Atualiza a lista sem recarregar a página
       } catch (error) {
         console.error('Erro ao deletar contato:', error);
@@ -149,6 +154,16 @@ export default {
   background-color: #dc2626;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+}
+.mensagem {
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
 }
 
 /* Responsividade */
